@@ -58,10 +58,39 @@ https://fr.wikipedia.org/wiki/%C3%89change_de_cl%C3%A9s_Diffie-Hellman
 +then we will create a symmetric key (called master key) based on the shared secret, the random server and the random client
 +then use master key for the rest of the encryption
 
--ChangeCipherSpec:
+-[ChangeCipherSpec]:
++message which passes in clear but which warns that one passes in encrypted mode
+
+-Finished: encrypted with the symmetric key (master key)
+
+-[ChangeCipherSpec]:
 +message which passes in clear but which warns that one passes in encrypted mode
 
 -Finished: encrypted with the symmetric key (master key)
 
 -Data: encrypted with the master key
 +a message authentication code (CAM), often referred to as MAC, is a code that accompanies data in order to ensure its integrity, by making it possible to verify that it has not been modified in any way, after a transmission for example.
+
+
+            RFC 5246 TLS August 2008
+Client                                Server
+ClientHello -------->
+                                  ServerHello
+                                  Certificate*
+                                  ServerKeyExchange*
+                                  CertificateRequest*
+                        <-------- ServerHelloDone
+Certificate*
+ClientKeyExchange
+CertificateVerify*
+[ChangeCipherSpec]
+Finished -------->
+                                  [ChangeCipherSpec]
+                        <-------- Finished
+
+Application Data <-------> Application Data
+
+
+Figure 1. Message flow for a full handshake
+* Indicates optional or situation-dependent messages that are not
+always sent.
