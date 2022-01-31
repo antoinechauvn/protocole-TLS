@@ -64,7 +64,7 @@ https://fr.wikipedia.org/wiki/%C3%89change_de_cl%C3%A9s_Diffie-Hellman
 -Finished: encrypted with the symmetric key (master key)
 
 -[ChangeCipherSpec]:
-+message which passes in clear but which warns that one passes in encrypted mode
++lets the other party know that it is going to switch to encrypted communication.
 
 -Finished: encrypted with the symmetric key (master key)
 
