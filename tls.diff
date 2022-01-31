@@ -12,6 +12,11 @@
 ++Process that incorporates two encryption keys, a public key and a private key. By convention, the encryption key of the message is called public key (and can be communicated without any restriction), and the decryption key of the message is called private key
 ++Asymmetric cryptography allows more to do signature than encryption
 
+-Symmetric cryptography:
+++Symmetric cryptography, known also as secret key cryptography, is the use of a single shared secret to share encrypted data between parties.
+++Ciphers in this category are called symmetric because you use the same key to encrypt and to decrypt the data.
+++The sender encrypts data using a password, and the recipient must know that password to access the data.
+
 --------------------------------------------------------
                        TLS 1.2 SCHEMA
 --------------------------------------------------------
