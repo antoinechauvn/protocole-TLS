@@ -94,3 +94,7 @@ Application Data <-------> Application Data
 Figure 1. Message flow for a full handshake
 * Indicates optional or situation-dependent messages that are not
 always sent.
+
+Note: To help avoid pipeline stalls, ChangeCipherSpec is an
+independent TLS protocol content type, and is not actually a TLS
+handshake message.
