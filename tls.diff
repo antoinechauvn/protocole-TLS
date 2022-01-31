@@ -1,0 +1,62 @@
+--------------------------------------------------------
+                          TLS 1.2
+--------------------------------------------------------
+
+-Cipher suites:
+++Key exchange algorithms (RSA, DH, ECDH, AND, ECDHE, PSK)
+++Authentication/digital signature algorithm (RSA, ECDSA, DSA)
+++Mass encryption algorithms (AES, CHACHA20, Camellia, ARIA)
+++Message authentication code algorithms (SHA-256, POLY1305)
+
+-Asymmetric cryptography:
+++Process that incorporates two encryption keys, a public key and a private key. By convention, the encryption key of the message is called public key (and can be communicated without any restriction), and the decryption key of the message is called private key
+++Asymmetric cryptography allows more to do signature than encryption
+
+--------------------------------------------------------
+                       TLS 1.2 SCHEMA
+--------------------------------------------------------
+
+-Client Hello:
++sessionid
++ciphersuite
++client random
+
+-Server Hello:
++version: define the tls version
++server random
++cipher suite to use
+
+-(Optional) Certificate:
++site certificate, certificate of the certification authority
++the client will be able to validate
++signature of the certification authority
++certificate contains the public key of the server
+
+-(Optional) Server Key Exchange:
++the server sends the client a server key exchange message if the public key information in the certificate is not sufficient for the key exchange.
++for example, in Diffie-Hellman (DH) based encryption suites, this message contains the server's DH public key
+
+-Client Key Echange:
++the goal is to exchange a symmetric key for the encryption of all messages
++rsa is deprecated for key exchange
++client generate a pre-master key that will be used to pre-generate a shared secret
++then encrypts it with the public key of the server certificate, send it to the server
++the server decrypts it with the private key associated with the certificate
++shared secret is setup
+
+++key exchange problem in RSA: Forwards Secrety
+https://en.wikipedia.org/wiki/Forward_secrecy
+
++other method: Diffie-Hellman
+https://fr.wikipedia.org/wiki/%C3%89change_de_cl%C3%A9s_Diffie-Hellman
++create a secret share
++then we will create a symmetric key (called master key) based on the shared secret, the random server and the random client
++then use master key for the rest of the encryption
+
+-ChangeCipherSpec:
++message which passes in clear but which warns that one passes in encrypted mode
+
+-Finished: encrypted with the symmetric key (master key)
+
+-Data: encrypted with the master key
++a message authentication code (CAM), often referred to as MAC, is a code that accompanies data in order to ensure its integrity, by making it possible to verify that it has not been modified in any way, after a transmission for example.
