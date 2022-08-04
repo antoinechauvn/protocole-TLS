@@ -22,6 +22,7 @@ Un certificat numérique fournit :
 * Intégrité de documents signé avec le certificat afin qu'ils ne puissent pas être modifiés par un tiers en transit.
 
 <hr>
+
 ## Certificat Racine
 Les navigateurs et les appareils décident de faire confiance à une AC en acceptant son certificat racine dans leur magasin de certificats racine, une base de données contenant une liste d'AC autorisées qui a été pré-installée dans le navigateur ou sur l'appareil. Windows, Apple et Mozilla (Firefox) ont tous implémenté un magasin de certificats racine dans leur système et la majorité des fabricants d'appareils mobiles ont également leur propre magasin de certificats racine.
 
