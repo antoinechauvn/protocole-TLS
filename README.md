@@ -52,7 +52,7 @@ Un certificat PEM (extension .pem) contient un certificat encodé en base64 qui 
 Une hiérarchie de certificats est utilisée pour vérifier la validité de l'émetteur d'un certificat. Cette hiérarchie est connue sous le nom de chaîne de confiance. Dans une chaîne de confiance, les certificats sont émis et signés par des certificats qui proviennent d'un certificat racine.
 
 ### Certificat Intermédiaire
-Les certificats intermédiaires font partie importante de la chaîne de confiance, ils permettent d'établir une liaison SSL avec les certificats racines de confiance présents dans les systèmes d'exploitation et les navigateurs. 
+Les certificats intermédiaires font partie importante de la chaîne de confiance, ils permettent d'établir une liaison SSL avec les certificats racines de confiance présents dans les systèmes d'exploitation et les navigateurs.<br>
 **Un certificat de client n'est pas émis directement par le certificat racine de l'AC, mais par le certificat intermédiaire.**
 
 ### X509
