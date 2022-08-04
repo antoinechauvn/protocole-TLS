@@ -27,3 +27,7 @@ Informations contenues dans un CSR:
 * L’adresse mail de l’intermédiaire au sein de l’entreprise (le plus souvent, c’est la personne en charge de la gestion des certificats).
 
 Après avoir généré le CSR, le demandeur l'envoie à une autorité de certification, qui vérifie indépendamment l'exactitude des informations qu'il contient et, le cas échéant, signe le certificat avec la clé privée de l'autorité de certification et renvoie le certificat.
+
+### Chaîne de confiance
+
+Une hiérarchie de certificats est utilisée pour vérifier la validité de l'émetteur d'un certificat. Cette hiérarchie est connue sous le nom de chaîne de confiance. Dans une chaîne de confiance, les certificats sont émis et signés par des certificats qui proviennent de plus haut dans la hiérarchie.
