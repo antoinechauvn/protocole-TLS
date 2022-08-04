@@ -40,3 +40,5 @@ Le certificat x509 n’est donc pas tout à fait un certificat en tant que tel, 
 
 ![image](https://user-images.githubusercontent.com/83721477/182935533-3477ca43-d61c-4f96-af80-eb85d3ed91e9.png)
 
+
+https://www.youtube.com/watch?v=58FUQzWxs3Y
