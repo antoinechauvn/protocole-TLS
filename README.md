@@ -69,4 +69,4 @@ https://www.youtube.com/watch?v=58FUQzWxs3Y
 
 ### Vérification d'un certificat
 
-Lorsque vous visitez un site Web HTTPS, votre navigateur vérifie que la chaîne de confiance présentée par le serveur lors de la poignée de main TLS se termine à l'un des certificats racine de confiance locaux
+Lorsque vous visitez un site Web HTTPS, votre navigateur vérifie que la chaîne de confiance présentée par le serveur lors de la poignée de main TLS se termine à l'un des certificats racine de confiance pré-installé dans votre navigateur ou Système d'exploitation
