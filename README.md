@@ -31,3 +31,7 @@ Après avoir généré le CSR, le demandeur l'envoie à une autorité de certifi
 ### Chaîne de confiance
 
 Une hiérarchie de certificats est utilisée pour vérifier la validité de l'émetteur d'un certificat. Cette hiérarchie est connue sous le nom de chaîne de confiance. Dans une chaîne de confiance, les certificats sont émis et signés par des certificats qui proviennent de plus haut dans la hiérarchie.
+
+### X509
+
+Le certificat x509 n’est donc pas tout à fait un certificat en tant que tel, mais une norme permettant de spécifier les formats des certificats à clé publique délivrés par les Autorités de Certification. Les certificats SSL/TLS sont des certificats x509
