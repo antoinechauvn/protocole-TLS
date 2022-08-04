@@ -26,4 +26,4 @@ Informations contenues dans un CSR:
 * Le pays (C=) sous la forme d’un code ISO à deux lettres ;
 * L’adresse mail de l’intermédiaire au sein de l’entreprise (le plus souvent, c’est la personne en charge de la gestion des certificats).
 
-Après avoir généré le CSR, le demandeur l'envoie à une autorité de certification, qui vérifie indépendamment l'exactitude des informations qu'il contient et, le cas échéant, signe le certificat avec la clé privée de l'autorité de certification et envoie le CSR.
+Après avoir généré le CSR, le demandeur l'envoie à une autorité de certification, qui vérifie indépendamment l'exactitude des informations qu'il contient et, le cas échéant, signe le certificat avec la clé privée de l'autorité de certification et renvoie le certificat.
