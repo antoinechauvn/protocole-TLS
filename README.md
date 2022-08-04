@@ -49,7 +49,7 @@ Un certificat PEM (extension .pem) contient un certificat encodé en base64 qui 
 
 ### Chaîne de confiance
 
-Une hiérarchie de certificats est utilisée pour vérifier la validité de l'émetteur d'un certificat. Cette hiérarchie est connue sous le nom de chaîne de confiance. Dans une chaîne de confiance, les certificats sont émis et signés par des certificats qui proviennent de plus haut dans la hiérarchie.
+Une hiérarchie de certificats est utilisée pour vérifier la validité de l'émetteur d'un certificat. Cette hiérarchie est connue sous le nom de chaîne de confiance. Dans une chaîne de confiance, les certificats sont émis et signés par des certificats qui proviennent d'un certificat racine.
 
 ### X509
 
