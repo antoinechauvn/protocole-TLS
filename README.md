@@ -6,3 +6,22 @@ Découverte du protocole TLS
 
 ## TLS 1.3
 ![TLS13](https://user-images.githubusercontent.com/83721477/152690010-0a2b1b29-eee1-4c53-851a-d9f8341b214c.png)
+
+
+## CA
+Une autorité de certification (CA), est une entreprise ou une organisation qui agit pour valider l'identité des entités (telles que les sites Web, les adresses e-mail, les entreprises ou les particuliers) et les lier à des clés cryptographiques par la publication de documents électroniques appelés certificats numériques.
+
+![image](https://user-images.githubusercontent.com/83721477/182842128-e9184b04-2c86-4615-bce9-35ff32d9b669.png)
+
+Un demandeur de certificat numérique génère un paire de clés publique et privée ainsi qu'une demande de signature de certificat (CSR)
+
+### CSR (Certificate Signing Request)
+Un CSR est un fichier texte **signé** avec la clé privée qui comprend la clé publique et d'autres informations qui seront incluses dans le certificat (par exemple, nom de domaine, organisation, adresse e-mail, etc.).
+
+Informations contenues dans un CSR:
+* Le nom du serveur (CN=);
+* Le nom de l’entreprise qui génère la demande (O=) ;
+* L’unité organisationnelle (OU=), sous la forme du numéro de SIREN précédé de « 0002 » ;
+* La localité (L=) et la région (S=) où est situé le siège social de l’organisation ;
+* Le pays (C=) sous la forme d’un code ISO à deux lettres ;
+* L’adresse mail de l’intermédiaire au sein de l’entreprise (le plus souvent, c’est la personne en charge de la gestion des certificats).
