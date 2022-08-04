@@ -28,6 +28,8 @@ Informations contenues dans un CSR:
 
 Après avoir généré le CSR, le demandeur l'envoie à une autorité de certification, qui vérifie indépendamment l'exactitude des informations qu'il contient et, le cas échéant, signe le certificat avec la clé privée de l'autorité de certification et renvoie le certificat.
 
+Un certificat PEM (extension .pem) contient un certificat encodé en base64 qui commence par -----BEGIN CERTIFICATE----- et se termine par -----END CERTIFICATE-----. Le format PEM est très courant.
+
 ### Chaîne de confiance
 
 Une hiérarchie de certificats est utilisée pour vérifier la validité de l'émetteur d'un certificat. Cette hiérarchie est connue sous le nom de chaîne de confiance. Dans une chaîne de confiance, les certificats sont émis et signés par des certificats qui proviennent de plus haut dans la hiérarchie.
