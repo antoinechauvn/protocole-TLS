@@ -25,7 +25,9 @@ agit pour valider l'identité des entités (telles que les sites Web, les adress
 
 ![image](https://user-images.githubusercontent.com/83721477/182842128-e9184b04-2c86-4615-bce9-35ff32d9b669.png)
 
-Un demandeur de certificat numérique génère un paire de clés publique et privée ainsi qu'une demande de signature de certificat (CSR)
+1. Un demandeur de certificat numérique génère une paire de clés publique et privée ainsi qu'une demande de signature de certificat (CSR)
+2. Après avoir généré le CSR, le demandeur l'envoie à une autorité de certification, qui vérifie indépendamment l'exactitude des informations qu'il contient
+3. le ca signe le certificat avec la clé privée de l'autorité de certification et renvoie le certificat.
 
 ### CSR (Certificate Signing Request)
 Un CSR est un fichier texte **signé** avec la clé privée qui comprend la clé publique et d'autres informations qui seront incluses dans le certificat (par exemple, nom de domaine, organisation, adresse e-mail, etc.).
@@ -37,8 +39,6 @@ Informations contenues dans un CSR:
 * La localité (L=) et la région (S=) où est situé le siège social de l’organisation ;
 * Le pays (C=) sous la forme d’un code ISO à deux lettres ;
 * L’adresse mail de l’intermédiaire au sein de l’entreprise (le plus souvent, c’est la personne en charge de la gestion des certificats).
-
-Après avoir généré le CSR, le demandeur l'envoie à une autorité de certification, qui vérifie indépendamment l'exactitude des informations qu'il contient et, le cas échéant, signe le certificat avec la clé privée de l'autorité de certification et renvoie le certificat.
 
 Un certificat PEM (extension .pem) contient un certificat encodé en base64 qui commence par -----BEGIN CERTIFICATE----- et se termine par -----END CERTIFICATE-----. Le format PEM est très courant.
 
