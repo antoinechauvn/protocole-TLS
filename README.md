@@ -37,3 +37,6 @@ Une hiérarchie de certificats est utilisée pour vérifier la validité de l'é
 ### X509
 
 Le certificat x509 n’est donc pas tout à fait un certificat en tant que tel, mais une norme permettant de spécifier les formats des certificats à clé publique délivrés par les Autorités de Certification. Les certificats SSL/TLS sont des certificats x509
+
+![image](https://user-images.githubusercontent.com/83721477/182935533-3477ca43-d61c-4f96-af80-eb85d3ed91e9.png)
+
