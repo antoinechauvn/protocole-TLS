@@ -27,7 +27,7 @@ agit pour valider l'identité des entités (telles que les sites Web, les adress
 
 1. Un demandeur de certificat numérique génère une paire de clés publique et privée ainsi qu'une demande de signature de certificat (CSR)
 2. Après avoir généré le CSR, le demandeur l'envoie à une autorité de certification, qui vérifie indépendamment l'exactitude des informations qu'il contient
-3. le ca signe le certificat avec la clé privée de l'autorité de certification et renvoie le certificat.
+3. Le CA signe le certificat avec la clé privée de l'autorité de certification et renvoie le certificat.
 
 ### CSR (Certificate Signing Request)
 Un CSR est un fichier texte **signé** avec la clé privée qui comprend la clé publique et d'autres informations qui seront incluses dans le certificat (par exemple, nom de domaine, organisation, adresse e-mail, etc.).
