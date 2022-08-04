@@ -9,7 +9,19 @@ Découverte du protocole TLS
 
 
 ## CA
-Une autorité de certification (CA), est une entreprise ou une organisation qui agit pour valider l'identité des entités (telles que les sites Web, les adresses e-mail, les entreprises ou les particuliers) et les lier à des clés cryptographiques par la publication de documents électroniques appelés certificats numériques.
+Une autorité de certification (CA), est une entreprise ou une organisation qui a pour but de:
+
+* Délivrer des certificats
+* Revoquer de certificats
+* Renouveller des certificats
+
+Un certificat numérique fournit :
+
+* Authentification, en servant de justificatif d'identité pour valider l'identité de l'entité à laquelle il est délivré.
+* Chiffrement, pour une communication sécurisée sur des réseaux non sécurisés comme Internet.
+* Intégrité de documents signé avec le certificat afin qu'ils ne puissent pas être modifiés par un tiers en transit.
+
+agit pour valider l'identité des entités (telles que les sites Web, les adresses e-mail, les entreprises ou les particuliers) et les lier à des clés cryptographiques par la publication de documents électroniques appelés certificats numériques.
 
 ![image](https://user-images.githubusercontent.com/83721477/182842128-e9184b04-2c86-4615-bce9-35ff32d9b669.png)
 
