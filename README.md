@@ -1,6 +1,8 @@
 # tls
 Découverte du protocole TLS
 
+https://www.cloudflare.com/fr-fr/learning/ssl/what-happens-in-a-tls-handshake/
+
 * https://www.youtube.com/watch?v=P6brMpIZaOo
 * https://www.youtube.com/watch?v=pRmwrp_99fA
 
