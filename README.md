@@ -115,19 +115,17 @@ Le dernier message du processus de poignée de main du serveur (envoyé crypté)
 #### Close Messages:
 À la fin de la connexion, chaque côté envoie une alerte close_notify pour informer que la connexion est fermée.
 
-## TLS 1.2
-![TLS12](https://user-images.githubusercontent.com/83721477/152689994-9ec7f1bd-f29d-4ab0-a09d-c60bb347fc97.png)
+<hr>
+
+![image](https://user-images.githubusercontent.com/83721477/183220478-4aa91e60-30e9-4211-86ed-878300d2d8f0.png)
+
+S = Pré-master key
+K = Master Key
+
+<hr>
 
 ## TLS 1.3
 ![TLS13](https://user-images.githubusercontent.com/83721477/152690010-0a2b1b29-eee1-4c53-851a-d9f8341b214c.png)
-
-## KEY EXCHANGE RSA VS DH
-
-### RSA
-![image](https://user-images.githubusercontent.com/83721477/183078763-76be0cb2-ae70-48e6-bf3a-47f9c009a101.png)
-
-### DH
-![image](https://user-images.githubusercontent.com/83721477/183078841-5d5902f7-2620-47b8-b05f-4fdc00c9f64b.png)
 
 
 ## CA
