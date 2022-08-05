@@ -70,14 +70,16 @@ Si le serveur demande un certificat au client, le client envoie sa chaîne de ce
 Le message Client Key Exchange est envoyé juste après la réception du Server Hello Done du serveur. Si le serveur demande un certificat client, le message est envoyé après cette étape. Au cours de cette étape, le client crée une `clé pré-maître` ou `pre-master key`.
 
 Le secret pré-maître est créé par le client (la méthode de création dépend de la suite de chiffrement) puis partagé avec le serveur:
-* Pour RSA, le client chiffre la pré-master key avec la clé publique du serveur et l'envoie au serveur
+* Pour RSA, le client créer une pré-master key basée sur une chaîne d'octets aléatoire. Chiffre la pré-master key avec la clé publique du serveur (provenant du certificat) et l'envoie au serveur
 * Pour les suites de chiffrement basées sur Diffie-Hellman, ce message contient la clé publique Diffie-Hellman du client.
 
 Le message contiendra:
 
 `Version`: La version du protocole du client dont le serveur vérifie si elle correspond au message hello du client d'origine.
 
-S
+`pre-master key`: UNIQUEMENT SI RSA
+
+`pubkey`: clé publique Diffie-Hellman du client. UNIQUEMENT SI DIFFIE-HELLMAN
 
 ## TLS 1.2
 ![TLS12](https://user-images.githubusercontent.com/83721477/152689994-9ec7f1bd-f29d-4ab0-a09d-c60bb347fc97.png)
