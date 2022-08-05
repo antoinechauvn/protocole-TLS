@@ -122,7 +122,7 @@ Le dernier message du processus de poignée de main du serveur (envoyé crypté)
 
 ![image](https://user-images.githubusercontent.com/83721477/183220478-4aa91e60-30e9-4211-86ed-878300d2d8f0.png)
 
-S = Pré-master key
+S = Pré-master key <br>
 K = Master Key
 
 <hr>
