@@ -39,7 +39,7 @@ Une fois que le serveur a reçu le Client Hello , il répond par un Server Hello
 * `Cipher Suite`: la suite de chiffrement la plus puissante prise en charge par le serveur et le client. S'il n'y a pas de suite de chiffrement prise en charge, une alerte d'échec d'établissement de liaison est créée.
 * `Compression Method`: L'algorithme de compression convenu à la fois par le serveur et le client. Ceci est facultatif.
 
-#### Certificate:
+#### Certificate (Optionnel):
 Le serveur envoie au client un certificat ou une chaîne de certificats. Une chaîne de certificats commence généralement par le certificat de clé publique du serveur et se termine par le certificat racine de l'autorité de certification. Ce message est facultatif, mais est utilisé chaque fois que l'authentification du serveur est requise.
 
 Le certificat contiendra:
@@ -47,8 +47,37 @@ Le certificat contiendra:
 * la clé publique utilisée par ce serveur
 * la preuve d'un tiers de confiance que le propriétaire de ce nom d'hôte détient la clé privée de cette clé publique
 
+#### Server Key Exchange (Optionnel):
+
+Le serveur envoie au client un message d'échange de clé de serveur si les informations de clé publique du certificat ne sont pas suffisantes pour l'échange de clé. Par exemple, dans les suites de chiffrement basées sur Diffie-Hellman (DH), ce message contient la clé publique DH du serveur.
 
 
+#### Certificate request (Optionnel):
+Si le serveur doit authentifier le client, il envoie au client une demande de certificat. Ce message est rarement envoyé.
+
+#### Server Hello Done:
+
+Le serveur l'envoie au client pour confirmer que le message Server Hello est terminé.
+
+<hr>
+
+#### Certificate (Optionnel):
+
+Si le serveur demande un certificat au client, le client envoie sa chaîne de certificats, tout comme le serveur l'a fait précédemment. Seules quelques serveurs demandent un certificat au client.
+
+#### Client key exchange:
+
+Le message Client Key Exchange est envoyé juste après la réception du Server Hello Done du serveur. Si le serveur demande un certificat client, le message est envoyé après cette étape. Au cours de cette étape, le client crée une `clé pré-maître` ou `pre-master key`.
+
+Le secret pré-maître est créé par le client (la méthode de création dépend de la suite de chiffrement) puis partagé avec le serveur:
+* Pour RSA, le client chiffre la pré-master key avec la clé publique du serveur et l'envoie au serveur
+* Pour les suites de chiffrement basées sur Diffie-Hellman, ce message contient la clé publique Diffie-Hellman du client.
+
+Le message contiendra:
+
+`Version`: La version du protocole du client dont le serveur vérifie si elle correspond au message hello du client d'origine.
+
+S
 
 ## TLS 1.2
 ![TLS12](https://user-images.githubusercontent.com/83721477/152689994-9ec7f1bd-f29d-4ab0-a09d-c60bb347fc97.png)
