@@ -9,6 +9,14 @@ https://www.youtube.com/watch?v=P6brMpIZaOo
 ## TLS 1.3
 ![TLS13](https://user-images.githubusercontent.com/83721477/152690010-0a2b1b29-eee1-4c53-851a-d9f8341b214c.png)
 
+## KEY EXCHANGE RSA VS DH
+
+### RSA
+![image](https://user-images.githubusercontent.com/83721477/183078763-76be0cb2-ae70-48e6-bf3a-47f9c009a101.png)
+
+### DH
+![image](https://user-images.githubusercontent.com/83721477/183078841-5d5902f7-2620-47b8-b05f-4fdc00c9f64b.png)
+
 
 ## CA
 Une autorité de certification (CA), est une entreprise ou une organisation qui a pour but de:
