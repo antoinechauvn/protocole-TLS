@@ -48,7 +48,6 @@ Le certificat contiendra:
 * la preuve d'un tiers de confiance que le propriétaire de ce nom d'hôte détient la clé privée de cette clé publique
 
 #### Server Key Exchange (Optionnel):
-
 Le serveur envoie au client un message d'échange de clé de serveur si les informations de clé publique du certificat ne sont pas suffisantes pour l'échange de clé. Par exemple, dans les suites de chiffrement basées sur Diffie-Hellman (DH), ce message contient la clé publique DH du serveur.
 
 
@@ -56,17 +55,14 @@ Le serveur envoie au client un message d'échange de clé de serveur si les info
 Si le serveur doit authentifier le client, il envoie au client une demande de certificat. Ce message est rarement envoyé.
 
 #### Server Hello Done:
-
 Le serveur l'envoie au client pour confirmer que le message Server Hello est terminé.
 
 <hr>
 
 #### Certificate (Optionnel):
-
 Si le serveur demande un certificat au client, le client envoie sa chaîne de certificats, tout comme le serveur l'a fait précédemment. Seules quelques serveurs demandent un certificat au client.
 
 #### Client key exchange:
-
 Le message Client Key Exchange est envoyé juste après la réception du Server Hello Done du serveur. Si le serveur demande un certificat client, le message est envoyé après cette étape. Au cours de cette étape, le client crée une `clé pré-maître` ou `pre-master key`.
 
 Le secret pré-maître est créé par le client (la méthode de création dépend de la suite de chiffrement) puis partagé avec le serveur:
@@ -80,6 +76,44 @@ Le message contiendra:
 `pre-master key`: UNIQUEMENT SI RSA
 
 `pubkey`: clé publique Diffie-Hellman du client. UNIQUEMENT SI DIFFIE-HELLMAN
+
+#### Certificate verify (Optionnel):
+Ce message est envoyé par le client lorsque le client présente un certificat comme expliqué précédemment. Son but est de permettre au serveur de terminer le processus d'authentification du client. Lorsque ce message est utilisé, le client envoie des informations qu'il signe numériquement à l'aide d'une fonction de hachage cryptographique. Lorsque le serveur déchiffre ces informations avec la clé publique du client, le serveur est en mesure d'authentifier le client.
+
+
+#### Génération du Master Secret ou Maître Secret
+Une fois que le serveur a reçu la clé secrète `pré-master key`, il utilise sa clé privée pour la déchiffrer. Maintenant, le client et le serveur calculent la clé secrète principale sur la base de valeurs aléatoires échangées précédemment (Client Random et Server Random) à l'aide d'une fonction pseudo-aléatoire (PRF). Une PRF est une fonction utilisée pour générer des quantités arbitraires de données pseudo-aléatoires.
+
+`master_secret = PRF(pre_master_secret, "master secret", ClientHello.random + ServerHello.random) [0..47];`
+
+La clé secrète principale, d'une longueur de 48 octets, sera ensuite utilisée à la fois par le client et le serveur pour chiffrer symétriquement les données pour le reste de la communication.
+
+Le client et le serveur créent un ensemble de 3 clés : 
+* client_write_MAC_key : Authentification et contrôle d'intégrité
+* server_write_MAC_key : Authentification et contrôle d'intégrité
+* client_write_key : Chiffrement des messages à l'aide d'une clé symétrique
+* server_write_key : Chiffrement des messages à l'aide d'une clé symétrique
+* client_write_IV : Vecteur d'initialisation utilisé par certains chiffrements AHEAD
+* server_write_IV : Initialisation Vecteur utilisé par certains chiffrements AHEAD
+
+secret partagé / clé de session
+
+#### Client Change Cipher Spec
+À ce stade, le client est prêt à basculer vers un environnement sécurisé et crypté. Le protocole Change Cipher Spec est utilisé pour modifier le cryptage. Toutes les données envoyées par le client seront désormais cryptées à l'aide de la clé partagée symétrique.
+
+#### Finished
+Le dernier message du processus de prise de contact du client signifie que la prise de contact est terminée. C'est aussi le premier message crypté de la connexion sécurisée.
+
+<hr>
+
+#### Server Change Cipher Spec
+Le serveur est également prêt à basculer vers un environnement crypté. Toutes les données envoyées par le serveur seront désormais cryptées à l'aide de la clé partagée symétrique.
+
+#### Finished
+Le dernier message du processus de poignée de main du serveur (envoyé crypté) signifie que la poignée de main est terminée.
+
+#### Close Messages:
+À la fin de la connexion, chaque côté envoie une alerte close_notify pour informer que la connexion est fermée.
 
 ## TLS 1.2
 ![TLS12](https://user-images.githubusercontent.com/83721477/152689994-9ec7f1bd-f29d-4ab0-a09d-c60bb347fc97.png)
