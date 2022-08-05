@@ -9,7 +9,7 @@ https://www.youtube.com/watch?v=pRmwrp_99fA
 * `Version`: numéro de version du protocole TLS que le client souhaite utiliser pour communiquer avec le serveur. Il s'agit de la version la plus élevée prise en charge par le client.
 * `Client Random`: nombre pseudo-aléatoire de 32 octets utilisé pour calculer le secret principal (utilisé dans la création de la clé de chiffrement).
 * `Session Identifier`: un numéro unique utilisé par le client pour identifier une session.
-* `Compression_methods`: c'est la méthode qui va être utilisée pour compresser les paquets SSL. En utilisant la compression, nous pouvons réduire l'utilisation de la bande passante et, par conséquent, accélérer les vitesses de transfert.
+* `Compression Methods`: c'est la méthode qui va être utilisée pour compresser les paquets SSL. En utilisant la compression, nous pouvons réduire l'utilisation de la bande passante et, par conséquent, accélérer les vitesses de transfert.
 * `Cipher Suites`: chaque suite de chiffrement contient un algorithme cryptographique pour chacune des tâches suivantes : 
   * échange de clés, 
   * authentification, 
@@ -17,8 +17,9 @@ https://www.youtube.com/watch?v=pRmwrp_99fA
   * authentification des messages. 
   
   Le client envoie une liste de toutes les suites de chiffrement qu'il prend en charge par ordre de préférence. Cela signifie que le client préférerait idéalement que la connexion soit établie à l'aide de la première suite de chiffrement envoyée.
+* `Extensions`: Le client peut demander des fonctionnalités supplémentaires pour la connexion. Cela peut être fait via des extensions telles que des groupes pris en charge pour la cryptographie à courbe elliptique, des formats de points pour la cryptographie à courbe elliptique, des algorithmes de signature, etc. Si le serveur ne peut pas fournir la fonctionnalité supplémentaire, le client peut interrompre la prise de contact si nécessaire.
 
-#### Exemple:
+#### Cipher Suites Exemple:
 `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
 
 * `TLS` est le protocole utilisé
@@ -26,6 +27,19 @@ https://www.youtube.com/watch?v=pRmwrp_99fA
 * `ECDSA` est l'algorithme d'authentification (Elliptic Curve Digital Signature Algorithm)
 * `AES_128_GCM` est l'algorithme de chiffrement des données (Advanced Encryption Standard 128 bit Galois/Counter Mode)
 * `SHA256` est l'algorithme Message Authentication Code (MAC) (Secure Hash Algorithm 256 bit)
+
+<hr>
+
+Une fois que le serveur a reçu le Client Hello , il répond par un Server Hello . Un Server Hello peut soit contenir des options sélectionnées (parmi celles proposées lors de Client Hello ), soit être un message d'échec de prise de contact.
+
+#### Server Hello:
+* `Server Version`: La version la plus élevée du protocole TLS prise en charge par le serveur qui est également prise en charge par le client.
+* `Server Random`: nombre pseudo-aléatoire de 32 octets utilisé pour générer le Master Secret.
+* `Session Identifier`: numéro unique permettant d'identifier la session pour la connexion correspondante avec le client. Si l'ID de session dans le message d'accueil du client n'est pas vide, le serveur trouvera une correspondance dans le cache de session. Si une correspondance est trouvée et que le serveur souhaite utiliser le même état de session, il renvoie le même ID que celui envoyé par le client. Si le serveur ne veut pas reprendre la même session, alors un nouvel ID est généré. Le serveur peut également envoyer un ID vide, indiquant que la session ne peut pas être reprise.
+* `Cipher Suite`: la suite de chiffrement la plus puissante prise en charge par le serveur et le client. S'il n'y a pas de suite de chiffrement prise en charge, une alerte d'échec d'établissement de liaison est créée.
+* `Compression Method`: L'algorithme de compression convenu à la fois par le serveur et le client. Ceci est facultatif.
+
+
 
 
 ## TLS 1.2
