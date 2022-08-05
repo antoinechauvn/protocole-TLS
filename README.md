@@ -39,6 +39,14 @@ Une fois que le serveur a reçu le Client Hello , il répond par un Server Hello
 * `Cipher Suite`: la suite de chiffrement la plus puissante prise en charge par le serveur et le client. S'il n'y a pas de suite de chiffrement prise en charge, une alerte d'échec d'établissement de liaison est créée.
 * `Compression Method`: L'algorithme de compression convenu à la fois par le serveur et le client. Ceci est facultatif.
 
+#### Certificate:
+Le serveur envoie au client un certificat ou une chaîne de certificats. Une chaîne de certificats commence généralement par le certificat de clé publique du serveur et se termine par le certificat racine de l'autorité de certification. Ce message est facultatif, mais est utilisé chaque fois que l'authentification du serveur est requise.
+
+Le certificat contiendra:
+* le nom d'hôte du serveur
+* la clé publique utilisée par ce serveur
+* la preuve d'un tiers de confiance que le propriétaire de ce nom d'hôte détient la clé privée de cette clé publique
+
 
 
 
