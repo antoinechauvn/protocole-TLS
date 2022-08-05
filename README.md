@@ -2,6 +2,7 @@
 Découverte du protocole TLS
 
 https://www.youtube.com/watch?v=P6brMpIZaOo
+https://www.youtube.com/watch?v=pRmwrp_99fA
 
 ## TLS 1.2
 ![TLS12](https://user-images.githubusercontent.com/83721477/152689994-9ec7f1bd-f29d-4ab0-a09d-c60bb347fc97.png)
