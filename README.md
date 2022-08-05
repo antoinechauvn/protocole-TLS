@@ -1,8 +1,9 @@
 # tls
 Découverte du protocole TLS
 
-https://www.youtube.com/watch?v=P6brMpIZaOo
-https://www.youtube.com/watch?v=pRmwrp_99fA
+* https://www.youtube.com/watch?v=P6brMpIZaOo
+* https://www.youtube.com/watch?v=pRmwrp_99fA
+
 ![CLIENT SSL](https://user-images.githubusercontent.com/83721477/183156943-26aa9044-1772-44b8-81bf-dce81dfa953a.svg)
 
 #### Client Hello:
