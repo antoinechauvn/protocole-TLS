@@ -3,6 +3,30 @@ Découverte du protocole TLS
 
 https://www.youtube.com/watch?v=P6brMpIZaOo
 https://www.youtube.com/watch?v=pRmwrp_99fA
+![CLIENT SSL](https://user-images.githubusercontent.com/83721477/183156943-26aa9044-1772-44b8-81bf-dce81dfa953a.svg)
+
+#### Client Hello:
+* `Version`: numéro de version du protocole TLS que le client souhaite utiliser pour communiquer avec le serveur. Il s'agit de la version la plus élevée prise en charge par le client.
+* `Client Random`: nombre pseudo-aléatoire de 32 octets utilisé pour calculer le secret principal (utilisé dans la création de la clé de chiffrement).
+* `Session Identifier`: un numéro unique utilisé par le client pour identifier une session.
+* `Compression_methods`: c'est la méthode qui va être utilisée pour compresser les paquets SSL. En utilisant la compression, nous pouvons réduire l'utilisation de la bande passante et, par conséquent, accélérer les vitesses de transfert.
+* `Cipher Suites`: chaque suite de chiffrement contient un algorithme cryptographique pour chacune des tâches suivantes : 
+  * échange de clés, 
+  * authentification, 
+  * chiffrement en masse (données)
+  * authentification des messages. 
+  
+  Le client envoie une liste de toutes les suites de chiffrement qu'il prend en charge par ordre de préférence. Cela signifie que le client préférerait idéalement que la connexion soit établie à l'aide de la première suite de chiffrement envoyée.
+
+#### Exemple:
+`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
+
+* `TLS` est le protocole utilisé
+* `ECDHE` est l'algorithme d'échange de clés (courbe elliptique Diffie–Hellman)
+* `ECDSA` est l'algorithme d'authentification (Elliptic Curve Digital Signature Algorithm)
+* `AES_128_GCM` est l'algorithme de chiffrement des données (Advanced Encryption Standard 128 bit Galois/Counter Mode)
+* `SHA256` est l'algorithme Message Authentication Code (MAC) (Secure Hash Algorithm 256 bit)
+
 
 ## TLS 1.2
 ![TLS12](https://user-images.githubusercontent.com/83721477/152689994-9ec7f1bd-f29d-4ab0-a09d-c60bb347fc97.png)
