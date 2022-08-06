@@ -91,6 +91,8 @@ Une fois que le serveur a reçu la clé secrète `pré-master key`, il utilise s
 
 La clé secrète principale, d'une longueur de 48 octets, sera ensuite utilisée à la fois par le client et le serveur pour chiffrer symétriquement les données pour le reste de la communication.
 
+Le secret principal a toujours exactement 48 octets de long. La durée du secret prémaître variera en fonction de la méthode d'échange de clés.
+
 Le client et le serveur créent un ensemble de 3 clés : 
 * client_write_MAC_key : Authentification et contrôle d'intégrité
 * server_write_MAC_key : Authentification et contrôle d'intégrité
